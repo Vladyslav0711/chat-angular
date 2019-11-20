@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let chat of chats"
+      (click)="selectChat(chat)"
+      [class.selected] = "isSelected(chat)"
+  >{{chat}}</li>
+</ul>

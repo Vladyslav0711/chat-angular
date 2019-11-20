@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Message} from './message.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angula-chat';
+  messages: Message[] = [];
+  newMessage;
+  selectedChat: string;
+  filteredMessages: Message[] = [];
+  chats: string[] = [
+    'dany',
+    'joffrey',
+    'imp',
+    'weather'
+  ];
+
+  sendMessage(newMessage) {
+    this.messages.push({text: newMessage, to: this.selectedChat} as Message);
+    this.newMessage = ' ';
+    this.filterMessages(this.selectedChat);
+
+  }
+
+  selectChat(chat: string) {
+    this.selectedChat = chat;
+    this.filterMessages(chat);
+  }
+
+  filterMessages(selectedChat) {
+    this.filteredMessages =  this.messages.filter((m: Message) => m.to === selectedChat);
+  }
 }
