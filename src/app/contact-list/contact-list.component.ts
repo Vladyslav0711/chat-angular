@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Chat} from '../chat.model';
 
 @Component({
   selector: 'app-contact-list',
@@ -6,16 +7,16 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent {
-  @Input() selectedChat: string;
-  @Input() chats: string[];
+  @Input() selectedChat: Chat;
+  @Input() chats: Chat[];
   @Output() selectCh = new EventEmitter();
   @Output() isSelect = new EventEmitter();
 
-  isSelected(chat: string): boolean {
+  isSelected(chat: Chat): boolean {
     return chat === this.selectedChat;
   }
 
-  selectChat(chat: string) {
+  selectChat(chat: Chat) {
     this.selectCh.emit(chat);
   }
 }

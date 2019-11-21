@@ -1,3 +1,10 @@
-<div>
-  <p *ngFor="let message of messages">{{message.text}}</p>
+<div class = "message">
+  <div>
+
+    <label>{{message.from}}</label>
+
+    <p>{{message.text}}</p>
+
+    <p>{{message.to.id}}</p>
+  </div>
 </div>

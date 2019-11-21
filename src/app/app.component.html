@@ -4,8 +4,9 @@
                     (selectCh) ="selectChat($event)"
   ></app-contact-list>
 
-  <app-direct-chat [messages]="filteredMessages"
+  <app-direct-chat [messages]="messages"
                    [newMessage]="newMessage"
                    (send)="sendMessage($event)"
+                   [selectedChat]="activeChat$ | async"
   ></app-direct-chat>
 </div>

@@ -1,4 +1,7 @@
+import {Contact} from './contact.model';
+
 export interface Message {
   text: string;
-  to: string;
+  to: Contact;
+  from: string;
 }

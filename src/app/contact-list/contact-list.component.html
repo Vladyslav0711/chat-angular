@@ -1,6 +1,13 @@
 <ul>
   <li *ngFor="let chat of chats"
       (click)="selectChat(chat)"
-      [class.selected] = "isSelected(chat)"
-  >{{chat}}</li>
+      [class.selected]="isSelected(chat)"
+  >
+    <a
+
+      routerLink="/chats/{{chat.id}}"
+    >
+      {{chat.text}}
+    </a>
+  </li>
 </ul>

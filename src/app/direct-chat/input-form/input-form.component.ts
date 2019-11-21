@@ -9,8 +9,8 @@ export class InputFormComponent {
   @Input() newMessage: string;
   @Output() send = new EventEmitter();
 
-  sendMessage(NewMessage: string) {
-    this.send.emit(NewMessage);
+  sendMessage(newMessage: string) {
+    this.send.emit(newMessage);
     this.newMessage = ' ';
   }
 
