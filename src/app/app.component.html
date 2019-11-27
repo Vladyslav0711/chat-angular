@@ -4,11 +4,13 @@
   <!-- (selectCh) ="selectChat($event)" -->
   <!-- [selectedChat] = "selectedChat" -->
 
-  <app-direct-chat [messages]="messages"
+  <!-- <app-direct-chat [messages]="messages"
                    [newMessage]="newMessage"
                    (send)="sendMessage($event)"
                    [selectedChat] = "selectedChat"
-  ></app-direct-chat>
+                   [chats] = "chats"
+  ></app-direct-chat> -->
+  <router-outlet></router-outlet>
 </div>
 <!-- [selectedChat]="activeChat$ | async" -->
  

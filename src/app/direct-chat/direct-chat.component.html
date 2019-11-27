@@ -1,8 +1,8 @@
 <div class="field">
-  <!-- <app-chat-history
+  <app-chat-history
     *ngFor="let message of selectedChat.messageArr"
     [message]="message"
-  ></app-chat-history> -->
+  ></app-chat-history>
 </div>
 
 <app-input-form [newMessage]="newMessage" (send)="sendMessage($event)"></app-input-form>
