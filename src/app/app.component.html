@@ -1,12 +1,14 @@
 <div>
   <app-contact-list [chats] = "chats"
-                    [selectedChat] = "selectedChat"
-                    (selectCh) ="selectChat($event)"
   ></app-contact-list>
+  <!-- (selectCh) ="selectChat($event)" -->
+  <!-- [selectedChat] = "selectedChat" -->
 
   <app-direct-chat [messages]="messages"
                    [newMessage]="newMessage"
                    (send)="sendMessage($event)"
-                   [selectedChat]="activeChat$ | async"
+                   [selectedChat] = "selectedChat"
   ></app-direct-chat>
 </div>
+<!-- [selectedChat]="activeChat$ | async" -->
+ 

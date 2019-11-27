@@ -7,16 +7,16 @@ import {Chat} from '../chat.model';
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent {
-  @Input() selectedChat: Chat;
+ // @Input() selectedChat: Chat;
   @Input() chats: Chat[];
   @Output() selectCh = new EventEmitter();
   @Output() isSelect = new EventEmitter();
 
-  isSelected(chat: Chat): boolean {
-    return chat === this.selectedChat;
-  }
+  // isSelected(chat: Chat): boolean {
+  //   return chat === this.selectedChat;
+  // }
 
-  selectChat(chat: Chat) {
-    this.selectCh.emit(chat);
-  }
+  // selectChat(chat: Chat) {
+  //   this.selectCh.emit(chat);
+  // }
 }

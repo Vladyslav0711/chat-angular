@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Message} from './message.model';
 import {Chat} from './chat.model';
 import {Observable, ReplaySubject, Subject} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
+import {map, tap, switchMap} from 'rxjs/operators';
 import {Contact} from './contact.model';
 import {ActivatedRoute, Params} from '@angular/router';
 import {async} from '@angular/core/testing';
@@ -13,15 +13,12 @@ import {async} from '@angular/core/testing';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(
-    private route: ActivatedRoute
-  ) {
 
-  }
 
   messages: Message[] = [];
   newMessage;
   activeChat$;
+  currentId: number;
 
 
   chats: Chat[] = [
@@ -46,11 +43,9 @@ export class AppComponent implements OnInit {
       messageArr: []
     }
   ];
-  selectedChat: Chat; //  = this.chats[1 + this.route.snapshot.paramMap.get('id')];
+  selectedChat: Chat = this.chats[0]; 
 
-  ngOnInit(): void {
-   // this.selectedChat = this.chats[0];
-  }
+  ngOnInit(): void { }
 
   sendMessage(newMessage) {
     this.selectedChat.messageArr.push({
@@ -61,13 +56,7 @@ export class AppComponent implements OnInit {
     this.newMessage = ' ';
   }
 
-  selectChat(chat: Chat) {
-    this.selectedChat = chat;
-    this.activeChat$ = this.route.params.pipe(
-      map(() => this.selectedChat),
-      tap(console.log)
-    );
-  }
+
 
 
 }

@@ -4,8 +4,7 @@ import {AppComponent} from './app.component';
 import {DirectChatComponent} from './direct-chat/direct-chat.component';
 
 const routes: Routes = [
-  {path: 'chats', component: AppComponent},
-  {path: 'chats/:id', component: AppComponent}
+  {path: 'chats/:recipient', component: DirectChatComponent}
 ];
 
 @NgModule({

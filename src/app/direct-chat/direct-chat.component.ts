@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Message} from '../message.model';
 import {ActivatedRoute} from '@angular/router';
 import {Chat} from '../chat.model';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-direct-chat',
@@ -14,15 +15,15 @@ export class DirectChatComponent implements OnInit {
   ) {
   }
 
-  filteredMessages: Message[];
 
   @Input() newMessage: string;
   @Output() send = new EventEmitter();
   @Input() messages: Message[];
   @Input() selectedChat: Chat;
+  @Input() chats: Chat[];
 
-  ngOnInit(): void {
-    // this.filterMessages();
+  ngOnInit() {
+    this.route.params.subscribe(val => console.log('ss'))
   }
 
 
